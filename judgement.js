@@ -1,15 +1,13 @@
 function get_achievement(x, y, z){
   let sum = x + y + z;
   if(sum >= 250){
-    return "あなたの成績はAです！";
+    return "A";
   } else if(sum >= 200) {
-    return "あなたの成績はBです！";
+    return "B";
   } else {
-    return "あなたの成績はCです！";
+    return "C";
   }
 };
-
-console.log(get_achievement(60,100,40));
 
 function get_pass_or_failure(x, y, z){
   if(x >= 60 && y >= 60 && z >= 60){
@@ -19,4 +17,10 @@ function get_pass_or_failure(x, y, z){
   }
 };
 
-console.log(get_pass_or_failure(60,100,60));
+function judgement(x, y, z) {
+  let achievement = get_achievement(x,y,z)
+  let pass_or_failure = get_pass_or_failure(x,y,z)
+  return `あなたの成績は${achievement}です！${pass_or_failure}`;
+};
+
+console.log(judgement(60,100,60));
