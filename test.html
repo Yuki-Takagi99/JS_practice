@@ -5,28 +5,16 @@
   <title>DOM操作入門</title>
 </head>
 <body>
-  <ul style="list-style-type: none">
-    <li class="list">DOM1</li>
-    <li class="list">DOM2</li>
-    <li class="list">DOM3</li>
-  </ul>
-  <ul style="list-style-type: none;">
-    <li class="list2">DOM4</li>
-    <li class="list2">DOM5</li>
-  </ul>
-  <input type="button" value="表示" onclick="classview()">
-  <input type="button" value="非表示" onclick="classhide()">
+  <form>
+    <input type="text" name="" id="name"/>
+    <input value="送信" id="btn"/>
+  </form>
   <script>
-    const classview = function(){
-      const lists = document.getElementsByClassName('list');
-      for(let i = 0; i < lists.length; i++){
-        lists[i].style.display = "block"};
-    };
-    const classhide = function(){
-      const lists = document.getElementsByClassName('list');
-      for(let i = 0; i < lists.length; i++){
-        lists[i].style.display="none" };
-    };
+    const target = document.getElementById('btn');
+    target.addEventListener('click', function() {
+      const form = document.getElementById('name');
+      console.log(form.value);
+    },false);
   </script>
 </body>
 </html>
