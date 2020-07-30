@@ -5,13 +5,19 @@
   <title>DOM操作入門</title>
 </head>
 <body>
-  <h1 id="select">DOM操作入門</h1>
-  <input type="button" value="Click" onclick="namechange()">
+  <ul>
+    <li>DOM1</li>
+    <li>DOM2</li>
+    <li>DOM3</li>
+  </ul>
+  <input type="button" value="Click" onclick="nameChange()">
   <script>
-    const namechange = function(){
-      const myp = document.getElementById('select');
-      myp.innerHTML = "ノード入門";
-    }
+    let nameChange = function(){
+      let li01 = document.getElementsByTagName('li');
+      for (let i = 0; i < li01.length; i++) {
+        li01[i].innerHTML = "liのテキストを変更しました！";
+      }
+    };
   </script>
 </body>
 </html>
