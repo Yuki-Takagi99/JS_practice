@@ -8,12 +8,24 @@
     <h1>jQueryを書いてみよう！</h1>
     <p>jQueryは、世界中でよく使用されるライブラリの一つです。</p>
     <p>jQueryの歴史は古く....</p>
+    <h2>リスト1</h2>
+    <ul id="list1" class="unordered">
+      <li>リスト</li>
+      <li>リスト</li>
+      <li>リスト</li>
+    </ul>
+    <h2>リスト2</h2>
+    <ol id="list2" class="ordered">
+      <li>リスト</li>
+      <li>リスト</li>
+      <li>リスト</li>
+    </ol>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script>
       $(function() {
-        $('p').on('click', function() {
-          $(this).css('color', 'blue');
+        $('ul, ol').on('click', function() {
+          $(this).css('background-color', 'yellowgreen');
         });
       });
     </script>
