@@ -22,6 +22,12 @@
         window.alert('TODOを入力してください！');
       } else {
         list.textContent = form.value;
+        list.addEventListener('click', function(e) {
+          const doneList = e.target;
+          doneList.style.textDecoration = 'line-through';
+          doneList.style.color = 'grey';
+          doneList.style.fontStyle = 'italic';
+        }, false);
         lists.appendChild(list);
         form.value = "";
       }
