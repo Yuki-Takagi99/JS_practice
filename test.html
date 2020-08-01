@@ -11,6 +11,7 @@
   </form>
   <h3>TODOリスト</h3>
   <ul id="lists"></ul>
+  <button type="button" id="deleteButton">削除する</button>
   <script>
     const lists = document.getElementById('lists')
     const target = document.getElementById('btn');
@@ -23,6 +24,13 @@
         list.textContent = form.value;
         lists.appendChild(list);
         form.value = "";
+      }
+    },false);
+
+    const deleteButton = document.getElementById('deleteButton');
+    deleteButton.addEventListener('click', function() {
+      while (lists.firstChild) {
+        lists.removeChild(lists.firstChild);
       }
     },false);
   </script>
