@@ -40,12 +40,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script>
-      $(function() {
-        $('table').find('td').on('click', function() {
+      $(function () {
+        $('table').find('td').data('count', 0)
+        .on('click', function() {
           let $this = $(this);
-          $this.closest('table').find('td')
-          .css('background-color', 'transparent');
-          $this.css('background-color', 'yellowgreen');
+          let number = $this.data('count') + 1;
+          $this
+          .data('count', number)
+          .text(number);
         });
       });
     </script>
