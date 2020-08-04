@@ -13,11 +13,9 @@ $(document).ready(function () {
     // 変数「sum」に
     // [国語の点数,英語の点数,数学の点数,理科の点数,社会の点数]をそれぞれ足します。
     // ヒント! 配列を一つずつ取り出して足していきます。
-    let sum = subject_points[0];
-    sum = sum + subject_points[1];
-    sum = sum + subject_points[2];
-    sum = sum + subject_points[3];
-    sum = sum + subject_points[4];
+    let sum = subject_points.reduce(function(accumulator, currentvalue, currentIndex, array) {
+      return accumulator + currentvalue;
+    });
     // 「合計点：」(id="sum_indicate")に変数「sum」(合計点)を出力させます。
     $("#sum_indicate").text(sum);
     // 変数「average」に
