@@ -10,17 +10,12 @@ $(document).ready(function () {
                           Number($('#science').val()),
                           Number($('#society').val())
                           ];
-    // 変数「sum」に
-    // [国語の点数,英語の点数,数学の点数,理科の点数,社会の点数]をそれぞれ足します。
-    // ヒント! 配列を一つずつ取り出して足していきます。
     let sum = subject_points.reduce(function(accumulator, currentvalue, currentIndex, array) {
       return accumulator + currentvalue;
     });
     // 「合計点：」(id="sum_indicate")に変数「sum」(合計点)を出力させます。
     $("#sum_indicate").text(sum);
-    // 変数「average」に
-    // 平均値を出して代入します。(平均をとりたい数の合計点数(sum) / 全体の個数)
-    // ヒント! 全体の個数はlengthメソッドを使って求めます。(lengthメソッド: 文字列の長さや配列の要素数などを取得するメソッド)
+
     let average = sum / subject_points.length;
     $("#average_indicate").text(average);
   };
@@ -30,14 +25,10 @@ $(document).ready(function () {
     // 平均点数をHTML上のid="average_indicate"から取得して代入します。
     let averageIndicate = $("#average_indicate").text();
     console.log(averageIndicate)
-    // もし「averageIndicate」が80以上なら"A"を返します。
     if (averageIndicate >= 80) {
       return "A";
-      // もし「averageIndicate」が60以上なら"B"を返します。
     } else if (averageIndicate >= 60) {
       return "B";
-      // もし「averageIndicate」が40以上なら"C"を返します。
-      // もし「averageIndicate」がそれ以外の点数なら"D"を返します。
     } else if (averageIndicate >= 40) {
       return "C";
     } else {
@@ -57,7 +48,6 @@ $(document).ready(function () {
     // 変数「judge」に"合格"を代入しておきます。
     let judge = "合格";
     // 入力したそれぞれの教科の点数が60点よりも低いと変数「judge」に"不合格"を再代入して「judge」を返します。
-    // ヒント! 「javascript 点数 合格 不合格 ロジック」で検索してみてください。
     for(let i=0; i<number; i++) {
       if (subject_points[i] < 60) {
         judge = "不合格";
@@ -73,6 +63,9 @@ $(document).ready(function () {
     // 変数「pass_or_failure」に「get_pass_or_failure()の戻り値」を代入します。
     let pass_or_failure = get_pass_or_failure();
     // 「最終ジャッジ」(id="alert-indicate)ボタンを押したら「あなたの成績は${achievement}で${pass_or_failure}です」が出力される処理です。
+    if ($('#alert-indicate')) {
+      $('#alert-indicate').remove();
+    };
     $('#declaration').append(`<label id="alert-indicate" class="alert alert-info">あなたの成績は${achievement}で${pass_or_failure}です！</label>`);
   };
   // [国語の点数,英語の点数,数学の点数,理科の点数,社会の点数]のいずれかの点数が変更された際に「function score_indicate()」を発火させる処理です。
@@ -92,5 +85,3 @@ $(document).ready(function () {
     judgement();
   });
 });
-// ここに書かれているjsの記述はあくまでヒントとして用意された雛形なので、書かれている記述に従わずに実装したいという場合は、自分の好きに実装して構わない。課題要件を満たし、コードの品質が一定の水準にあると判定されればどのような実装でも合格になる。
-// 例ではJavaScriptとjQueryの両方の記述を使用しているが、どちらかに統一しても構いません。
